@@ -7,7 +7,6 @@ import SensorValues from "../utils/datatype";
 
 const initialValues: SensorValues = { x: 0, y: 0, z: 0 };
 
-
 export default function Index() {
   const [accelerometer, setAccelerometer] = useState(initialValues);
   const [gyroscope, setGyroscope] = useState(initialValues);
@@ -32,7 +31,7 @@ export default function Index() {
       setGyroscopeAvailable(gyroscopeIsAvailable);
       Accelerometer.setUpdateInterval(500); // update values every 500ms
       Gyroscope.setUpdateInterval(500);
-
+      
       if (accelerometerIsAvailable) {
         accelerometerSubscription.current = Accelerometer.addListener(setAccelerometer);
       }
@@ -40,7 +39,6 @@ export default function Index() {
         gyroscopeSubscription.current = Gyroscope.addListener(setGyroscope);
       }
     };
-
     startSensors();
 
     return () => {

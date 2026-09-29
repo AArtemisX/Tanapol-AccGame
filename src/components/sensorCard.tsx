@@ -22,8 +22,8 @@ export default function SensorCard({
       <View style={styles.values}>
         {(["x", "y", "z"] as const).map((axis) => (
           <View key={axis} style={styles.valueRow}>
-            <Text style={styles.axis}>{axis.toUpperCase()}</Text>
-            <Text style={styles.value}>{(values[axis]*100).toFixed()}</Text>
+            <Text style={styles.axis}>{axis.toUpperCase()} : </Text>
+            <Text style={styles.value}>{(values[axis]).toFixed(2)}</Text>
           </View>
         ))}
       </View>
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     borderColor: "#2b393b",
     borderRadius: 8,
     borderWidth: 1,
-    padding: 20,
+    padding: 10,
   },
   cardHeader: {
     alignItems: "center",
@@ -67,7 +67,9 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   values: {
-    gap: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 5,
     marginTop: 20,
   },
   valueRow: {
@@ -76,13 +78,14 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal: 14,
+    paddingHorizontal: 5,
     paddingVertical: 12,
   },
   axis: {
     color: "#7ed6b2",
     fontSize: 13,
     fontWeight: "800",
+    paddingHorizontal: 15,
   },
   value: {
     color: "#f2f6f4",
