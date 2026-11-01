@@ -1,24 +1,29 @@
 {
   "expo": {
-    "name": "accel",
-    "slug": "accel",
+    "name": "GyroRush",
+    "slug": "accgame",
+    "owner": "tanapol_ar",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "accel",
-    "userInterfaceStyle": "automatic",
+    "scheme": "gyrorush",
+    "userInterfaceStyle": "light",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.soradech.gyrorush"
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#3F52F2",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.soradech.accel"
+      "package": "com.soradech.gyrorush",
+      "permissions": [
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ]
     },
     "web": {
       "output": "static",
@@ -29,15 +34,38 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
+          "backgroundColor": "#F5F7FC",
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }
-      ]
+      ],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "enableSceneSupport": true
+          }
+        }
+      ],
+      [
+        "expo-audio",
+        {
+          "microphonePermission": false,
+          "recordAudioAndroid": false,
+          "enableBackgroundPlayback": false
+        }
+      ],
+      "expo-sqlite"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "36b3546e-d58c-4990-a673-2db96fd79b1c"
+      }
     }
   }
 }
